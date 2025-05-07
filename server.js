@@ -6,12 +6,14 @@ import dotenv from 'dotenv';
 import express from 'express';
 import rateLimit from 'express-rate-limit';
 import historyApiFallback from 'connect-history-api-fallback';
+import helmet from 'helmet';
 
 // Load environment variables from .env file
 dotenv.config();
 
 // Create the Express app
 const app = express();
+app.use(helmet());
 
 const __filename = new URL(import.meta.url).pathname;
 const __dirname = path.dirname(__filename);
